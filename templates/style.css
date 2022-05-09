@@ -1,0 +1,189 @@
+*{
+    margin: 0px;
+    padding: 0px; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #4c7d5b;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #4c7d5b
+}
+
+.resultTitle{
+    color: rgb(0,0,0);
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.resultOrganization{
+    color: rgb(0, 0, 0);
+    letter-spacing: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo{
+    color: #fff;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.navSearchText{
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    transform: translateX(0px);
+}
+
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links a{
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px){
+    .nav-links {
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px; 
+        height: 92vh;
+        top: 8vh; 
+        background-color: #6b705c;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        transform: translateX(100%);
+        animation: navSlideOut 0s forwards;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+
+    .nav-active {
+        animation: navSlide 0.5s ease both;
+    }
+    
+    .nav-off {
+        animation: navSlideOut 0.5s ease both;
+    }
+}
+
+@keyframes navSlide {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes navSlideOut {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.applyButton{
+    background-color: #4c7d5b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.signUpButton{
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 16px;
+}
+
+.login-form {
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.login-form h1 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+
+.login-form p {
+    font-size: 15px;
+    margin: 10px 0;
+
+}
+
+.login-form input {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 5px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.editInfo{
+    padding: 2px;
+}

@@ -1,0 +1,112 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Recruit</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+    <form action="" class="login-form">
+        <h1>Post Your Volunteering Opportunity</h1>
+        <h4>Title</h4>
+        <input type="text" name="post_title" placeholder="title">
+        <br>
+        <br>
+        <div class="location">
+            <h4>Location</h4>
+            <input type="text" name="city" placeholder="city">
+            <input type="text" name="state" placeholder="state">
+            <input type="text" name="zip_code" placeholder="zip_code">
+        </div>
+        <br>
+        <br>
+        <h4>Description</h4>
+        <textarea name="description" cols="94" rows="15">A description of the opportunity you are posting about.</textarea>
+        <br>
+        <br>
+        <input id="orgsignup" type="submit" value="post">
+    </form>
+
+    <style>
+        body {
+            background: url(images/login.jpg);
+        }
+    
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 700px;
+            height: 900px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+    
+        h1 {
+            margin: 0;
+            padding: 30px 0 10px;
+            text-align: center;
+        }
+    
+        .login-form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #dda15e;
+            color: #fff;
+            border-radius: 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+    
+        .login-form input[type="password"] {
+            margin-bottom: 5px;
+        }
+    
+        nav {
+            background-color: #4c7d5b00;
+        }
+    
+        .logo {
+            color: #fff;
+        }
+    
+        a {
+            color: #dda15e;
+            margin-left: 15px;
+        }
+    
+        .login-form input[type="submit"]:hover {
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+    
+        .login-form a:hover {
+            color: #ffc107;
+        }
+        .location input{
+            margin-bottom: 5px;
+        }
+    </style>
+
+</body>
+</html>

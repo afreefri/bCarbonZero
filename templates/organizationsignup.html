@@ -1,0 +1,107 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Organization Sign Up</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+    <div class="login-form">
+        <h1>organization sign up</h1>
+        <form action="">
+            <p>Employer Identification Number</p>
+            <input type="text" name="vendorEIN" placeholder="123456789">
+            <p>Email</p>
+            <input type="email" name="userEmail" placeholder="example@email.com">
+            <p>Password</p>
+            <input type="password" name="userPassword" placeholder="password">
+            <p>Confirm Password</p>
+            <input type="password" name="userPassword" placeholder="confirm password">
+            <br>
+            <br>
+            <a href="orgsignupcontinued.html" id="hide">2</a>
+            <input type="submit" value="continue">
+            <!--
+                ONCE THE FORM HAS BEEN ENTERED, REDIRECT TO orgsignupcontinued.html
+            -->
+        </form>
+        <a href="login.html">Have an account already? Log in!</a>
+    </div>
+    
+    <style>
+        body {
+            background: url(images/login.jpg);
+        }
+        #hide{
+            color: #4c7d5bd6;
+        }
+        #hide:hover{
+            color: #ffc107;
+        }
+    
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 370px;
+            height: 650px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+    
+        h1 {
+            margin: 0;
+            padding: 30px 0 10px;
+            text-align: center;
+        }
+    
+        .login-form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #dda15e;
+            color: #fff;
+            border-radius: 20px;
+        }
+    
+        nav {
+            background-color: #4c7d5b00;
+        }
+    
+        .logo {
+            color: #fff;
+        }
+    
+        a {
+            color: #dda15e;
+            margin-left: 15px;
+        }
+        .login-form input[type="submit"]:hover{
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+        .login-form a:hover{
+            color: #ffc107;
+        }
+    </style>
+</body>
+</html>

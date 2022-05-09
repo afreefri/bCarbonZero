@@ -1,0 +1,121 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Edit Account</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+
+    <div class="login-form">
+        <h1>Edit Account Info</h1>
+        <form action="">
+            <input type="text" name="name" placeholder="organization name">
+            <input type="submit" value="change name">
+        </form>
+        <br>
+        <form action="">
+            <input type="text" name="building_num" placeholder="building number">
+            <input type="street" name="street" placeholder="street name">
+            <input type="text" name="city" placeholder="city">
+            <input type="text" name="state" placeholder="state">
+            <input type="text" name="zip_code" placeholder="zip code">
+            <input type="submit" value="change address">
+        </form>
+        <br>
+        <form action="">
+            <input type="text" name="phone_number" placeholder="phone number: 3471234568">
+            <input type="submit" value="change number">
+        </form>
+        <br>
+        <form action="">
+            <textarea name="mission_statement" cols="63" rows="2">Add your organization's mission statement.</textarea>
+            <input type="submit" value="change statement">
+        </form>
+        <br>
+        <form action="">
+            <textarea name="description" cols="63" rows="5">A description of what your organization is and what you do.</textarea>
+            <input type="submit" value="change description">
+        </form>
+        <br>
+        <form action="">
+            <input type="text" name="website" placeholder="www.example.com">
+            <input type="submit" value="change website">
+        </form>
+        <br>
+    </div>
+    <style>
+        body {
+            background: url(images/login.jpg);
+        }
+    
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 500px;
+            height: 1300px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+    
+        h1 {
+            margin: 0;
+            padding: 30px 0 10px;
+            text-align: center;
+        }
+    
+        .login-form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #dda15e;
+            color: #fff;
+            border-radius: 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+    
+        nav {
+            background-color: #4c7d5b00;
+        }
+    
+        .logo {
+            color: #fff;
+        }
+    
+        a {
+            color: #dda15e;
+            margin-left: 15px;
+        }
+    
+        .login-form input[type="submit"]:hover {
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+    
+        .login-form a:hover {
+            color: #ffc107;
+        }
+    </style>
+</body>
+</html>

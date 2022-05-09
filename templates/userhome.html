@@ -1,0 +1,110 @@
+<!-- COMPLETED HTML AND CSS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+
+    <div class="login-form">
+        <div class="imgcontainer">
+            <img src="images/avatar.png" class="profile-pic-icon">
+        </div>
+
+        <!-- all info from the volunteer table -->
+        <h1>af3521@nyu.edu</h1>
+        <h3>Tokens Collected: 500</h3>
+        <br>
+        <button> <a href="exchangehistory.html" target="_blank">Purchase History</a></button>
+        <button><a href="volunteerHistory.html" target="_blank">Volunteering History</a></button>
+        <br>
+        <button><a href="useraccountedit.html" target="_blank">Edit Profile</a></button>
+    </div>
+
+    <style>
+        body {
+            background: url(images/forest1.jpg);
+        }
+
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 50%;
+            height: fit-content;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 80px 80px 80px 80px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 20px 0 5px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #4c7d5b00;
+        }
+
+        .logo {
+            color: #fff;
+        }
+
+        .login-form a {
+            color: #fff;
+            margin-left: 15px;
+        }
+        .login-form a:hover{
+            color: black;
+        }
+
+        button {
+            font-size: 16px;
+            width: 40%;
+            padding: 10px 5px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            border: 0;
+            outline: none;
+            border-radius: 5px;
+            background-color: #dda15e;
+            color: white;
+        }
+
+        button:hover {
+            background: #ffc107;
+            color: black;
+        }
+
+        .login-form img {
+            width: 300px;
+            border-radius: 50%;
+        }
+
+        .imgcontainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</body>
+</html>

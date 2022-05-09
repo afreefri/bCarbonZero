@@ -1,0 +1,126 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Volunteer</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+        
+        <form class="searchmenu">
+            <label for="city" class="navSearchText">Search By City Or Zip Code:</label>
+            <input id="city" type="text" name="city" placeholder="city">
+            <input type="text" name="zip_code" placeholder="zip code">
+            <input type="submit" value="search">
+        </form>
+    </nav>
+    <br>
+    <br>
+
+    <div class="searchResult">
+        <!-- title from opportunity table -->
+        <a href="opportunitypage.html" class="resultTitle">Plant Trees</a> <br>
+        
+        <!-- organization name from organization table -->
+        <a href="organizationAbout.html" class="resultOrganization">treeplanter</a>
+
+        <!-- all this info from opportunity table -->
+        <h5>Brooklyn, NY</h5>
+        <h5>04/05/2022</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt voluptas?</p>
+    </div>
+    <div class="searchResult">
+        <!-- title from opportunity table -->
+        <a href="opportunitypage.html" class="resultTitle">Clean Coney Island Beach</a> <br>
+    
+        <!-- organization name from organization table -->
+        <a href="organizationAbout.html" class="resultOrganization">beachcleaner</a>
+    
+        <!-- all this info from opportunity table -->
+        <h5>Brooklyn, NY</h5>
+        <h5>04/05/2022</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
+            voluptas?</p>
+    </div>
+    <div class="searchResult">
+        <!-- title from opportunity table -->
+        <a href="opportunitypage.html" class="resultTitle">Soup Kitchen</a> <br>
+    
+        <!-- organization name from organization table -->
+        <a href="organizationAbout.html" class="resultOrganization">soupkitchen</a>
+    
+        <!-- all this info from opportunity table -->
+        <h5>Queens, NY</h5>
+        <h5>04/05/2022</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
+            voluptas?</p>
+    </div>
+    <div class="searchResult">
+        <!-- title from opportunity table -->
+        <a href="opportunitypage.html" class="resultTitle">Animal Shelter</a> <br>
+    
+        <!-- organization name from organization table -->
+        <a href="organizationAbout.html" class="resultOrganization">animalshelter</a>
+    
+        <!-- all this info from opportunity table -->
+        <h5>Manhattan, NY</h5>
+        <h5>04/05/2022</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
+            voluptas?</p>
+    </div>
+
+    <style>
+        body{
+            margin-bottom: 50px;
+            font-size: 20px;
+            background: url(images/mushroom.jpg);
+        }
+        .logo{
+            color: #fff;
+        }
+        .navSearchText{
+            color: #fff;
+        }
+        .searchResult{
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 20px;
+            border: 1px black solid;
+            border-radius: 15px;
+            padding: 15px 15px 15px 15px;
+            background-color: #fff;
+        }
+        .resultTitle{
+            color: #ff9807;
+            font-size: 30px;
+        }
+        .searchResult a:hover{
+            color: #febe00;
+        }
+        .resultOrganization{
+            font-size: 25px;
+            
+        }
+        .searchmenu input{
+            padding: 2px;
+            border-radius: 5px;
+        }
+        .searchmenu input[type="submit"]:hover{
+            background: #febe00;
+        }
+    </style>
+</body>
+</html>

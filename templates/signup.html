@@ -1,0 +1,99 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Sign Up</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+
+    <div class="loginbox">
+        <h1>I AM...</h1>
+        <div>
+            <a href="usersignup.html">
+                <button>a volunteer</button>
+            </a>
+        </div>
+        <div>
+            <a href="organizationsignup.html">
+                <button>an organization</button>
+            </a>
+        </div>
+        <div>
+            <a href="vendorsignup.html">
+                <button>a vendor</button>
+            </a>
+        </div>
+        <div class="loginLink">
+            <a href="login.html" class="loginLink">Already have an account? Log in!</a>
+        </div>
+    </div>
+    
+    <style>
+        button{
+            font-size: 16px;
+            width: 90%;
+            padding: 10px 5px;
+            margin-bottom: 15px;
+            border: 0;
+            outline: none;
+            border-radius: 5px;
+            background-color: #dda15e;
+            color: white;
+        }
+        body{
+            background: url(images/signup.png);
+            margin-bottom: 50px;
+        }
+        .loginbox{
+            margin-top: 7%;
+            width: 370px;
+            height: 370px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative; 
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+        h1{
+            margin: 0;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        nav{
+            background-color: #ffc107a6;
+        }
+        .logo{
+            color: #fff;
+        }
+        a{
+            color: #dda15e;
+            margin-left: 15px;
+        }
+        .loginbox a:hover{
+            color: #ffc107;
+        }
+        .loginbox button:hover{
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+    </style>
+</body>
+</html>
