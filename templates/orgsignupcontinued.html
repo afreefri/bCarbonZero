@@ -1,0 +1,122 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Organization Sign Up</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+
+    <div class="login-form">
+        <h1>ORGANIZATION SIGN UP</h1>
+        <form action="">
+            <h4>Name</h4>
+            <input type="text" name="name" placeholder="organization name">
+            <br>
+            <br>
+            <div class="address">
+                <h4>Address</h4>
+                <input type="text" name="building_num" placeholder="building number">
+                <input type="street" name="street" placeholder="street name">
+                <input type="text" name="city" placeholder="city">
+                <input type="text" name="state" placeholder="state">
+                <input type="text" name="zip_code" placeholder="zip code">
+            </div>
+            <br>
+            <h4>Phone Number</h4>
+            <input type="text" name="phone_number" placeholder="3479812907">
+            <br>
+            <br>
+            <h4>Mission Statement</h4>
+            <textarea name="mission_statement" cols="63" rows="2">Add your organization's mission statement.</textarea>
+            <br>
+            <br>
+            <h4>Description</h4>
+            <textarea name="description" cols="63" rows="5">A description of what your organization is and what you do.</textarea>
+            <br>
+            <br>
+            <h4>Website</h4>
+            <input type="text" name="website" placeholder="www.example.com">
+            <br>
+            <br>
+            <input type="submit" value="signup">
+        </form>
+    </div>
+
+    <style>
+        body {
+            background: url(images/login.jpg);
+        }
+    
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 500px;
+            height: 1100px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+    
+        h1 {
+            margin: 0;
+            padding: 30px 0 10px;
+            text-align: center;
+        }
+    
+        .login-form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #dda15e;
+            color: #fff;
+            border-radius: 20px;
+        }
+    
+        nav {
+            background-color: #4c7d5b00;
+        }
+    
+        .logo {
+            color: #fff;
+        }
+    
+        a {
+            color: #dda15e;
+            margin-left: 15px;
+        }
+    
+        .login-form input[type="submit"]:hover {
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+    
+        .login-form a:hover {
+            color: #ffc107;
+        }
+
+        .address input{
+            margin-bottom: 5px;
+        }
+    </style>
+</body>
+</html>

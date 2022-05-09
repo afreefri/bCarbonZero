@@ -1,0 +1,122 @@
+<!-- COMPLETED HTML AND CSS -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Post History</title>
+</head>
+
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+
+    <div class="applicants">
+        <h1>Volunteering History</h1>
+        <div class="table">
+            <table>
+                <th>Post Title</th>
+                <th>Status</th>
+                <th>Tokens Rewarded</th>
+
+                <tr>
+                    <!--title from opportunity table-->
+                    <td> <a href="opportunitypage.html" target="_blank">Plant Trees</a> </td>
+                    <td> approved </td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <!--title from opportunity table-->
+                    <td> <a href="opportunitypage.html" target="_blank">Clean Coney Island</a> </td>
+                    <td> pending </td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <!--title from opportunity table-->
+                    <td> <a href="opportunitypage.html" target="_blank">Animal Shelter</a> </td>
+                    <td> approved </td>
+                    <td>100</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <style>
+        .table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body {
+            background: url(images/mushroom.jpg);
+            margin-bottom: 50px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 15px;
+            margin-top: 45px;
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        .applicants {
+            width: 70%;
+            height: fit-content;
+            padding: 20px;
+            background: #4c7d5b;
+            color: #fff;
+            box-sizing: border-box;
+            margin-top: 30px;
+            padding-bottom: 50px;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%);
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .applicants h1 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 40px 0 20px;
+        }
+
+        .applicants p {
+            font-size: 15px;
+            margin: 10px 0;
+        }
+
+        .applicants a {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .applicants a:hover {
+            color: #ffc107;
+        }
+    </style>
+</body>
+
+</html>

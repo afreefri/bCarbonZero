@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+        <ul class="nav-links">
+            <li>
+                <a href="volunteer.html">Volunteer</a>
+            </li>
+            <li>
+                <a href="recruit.html">Recruit</a>
+            </li>
+            <li>
+                <a href="advertise.html">Advertise</a>
+            </li>
+            <li>
+                <a href="advertisements.html">Exchange</a>
+            </li>
+            <li>
+                <!-- IF LOGGED IN, REDIRECT TO THEIR APPROPRIATE ACCOUNT HOMEPAGE, OTHERWISE REDIRECT TO SIGNUP PAGE-->
+                <a href="signup.html">Account</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="parallax" id="one">
+            <p>bCarbonZero</p>
+        </div>
+        <div class="content">
+            <p>Connecting inspired people to inspired causes.</p>
+            <p>The place for volunteers, non-profit organizations, and vendors to connect over world-changing causes.
+            </p>
+        </div>
+        <div class="parallax" id="two">
+            <p>VOLUNTEER</p>
+        </div>
+        <div class="content">
+            <p>Easily search for volunteering opportunities near you.</p>
+            <p>Get rewarded for you time and effort! Collect tokens for your hard work.</p>
+            <p>Browse through our products and exchange your tokens for discounts.</p>
+            <p>Make a volunteer account today!</p>
+        </div>
+        <div class="parallax" id="three">
+            <p>RECRUIT</p>
+        </div>
+        <div class="content">
+            <p>Easily recruit volunteers for your company.</p>
+            <p>Simply sign up with as an organization account. Post your volunteering opportunities and watch as
+                recruits fill up your page!</p>
+            <p>Approve the volunteers for a completed task and you're done!</p>
+            <p>Repeat as necessary.</p>
+        </div>
+        <div class="parallax" id="four">
+            <p>ADVERTISE</p>
+        </div>
+        <div class="content">
+            <p>Help incentivize people to volunteer by advertising your product discounts.</p>
+            <p>Just create a vendor account today and watch as your sales go up!</p>
+        </div>
+    </div>
+
+    <style>
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background: #f9f9f9;
+            font-size: 24px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .parallax {
+            background: url(images/forest1.jpg) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        #two {
+            background: url(images/sunset.jpg) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        #three {
+            background: url(images/anotherTree.jpg) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        #four {
+            background: url(images/tree.jpg) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        .parallax p {
+            text-align: center;
+            line-height: 400px;
+            color: #fff;
+            font-size: 50px;
+            letter-spacing: 10px;
+        }
+
+        .content {
+            margin: 10px 20% 10px 20%;
+            padding: 50px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+    </style>
+</body>
+</html>

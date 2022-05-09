@@ -1,0 +1,108 @@
+<!-- COMPLETED HTML AND CSS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Edit Account</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href="index.html">bCarbonZero</a>
+    </nav>
+    <div class="login-form">
+        <h1>edit your information</h1>
+        <form action="">
+            <input type="text" name="company_name" placeholder="company name">
+            <input type="submit" value="change company name">
+        </form>
+        <br>
+        <form action="">
+            <input type="email" name="company_email" placeholder="example@email.com">
+            <input type="submit" value="change email">
+        </form>
+        <br>
+        <form action="">
+            <input type="password" name="company_password" placeholder="password">
+            <input type="password" name="confirm_password" placeholder="confirm password">
+            <input type="submit" value="change password">
+        </form>
+    
+    
+    </div>
+    
+    <style>
+        body {
+            background: url(images/login.jpg);
+        }
+    
+        .login-form {
+            margin-bottom: 10%;
+            margin-top: 3%;
+            width: 370px;
+            height: 680px;
+            background: #4c7d5bd6;
+            color: #fff;
+            left: 50%;
+            position: relative;
+            transform: translate(-50%);
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+    
+        h1 {
+            margin: 0;
+            padding: 30px 0 10px;
+            text-align: center;
+        }
+    
+        .login-form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #dda15e;
+            color: #fff;
+            border-radius: 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+    
+        .login-form input[type="password"] {
+            margin-bottom: 5px;
+        }
+    
+        nav {
+            background-color: #4c7d5b00;
+        }
+    
+        .logo {
+            color: #fff;
+        }
+    
+        a {
+            color: #dda15e;
+            margin-left: 15px;
+        }
+    
+        .login-form input[type="submit"]:hover {
+            cursor: pointer;
+            background: #ffc107;
+            color: #000
+        }
+    
+        .login-form a:hover {
+            color: #ffc107;
+        }
+    </style>
+</body>
+</html>
