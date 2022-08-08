@@ -12,56 +12,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Exchange</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
+
+        <form action="/productSearch" class="searchmenu" method="POST">
+            <label for="keyword" class="navSearchText">Search By Keywords:</label>
+            <input id="keyword" type="text" name="keyword">
+            <input type="submit" value="search">
+        </form>
     </nav>
     <br>
 
-    <!-- title, date_posted, time_posted, and description from the advertisement table -->
-    <!-- company_name from vendor table -->
+    {% for each in data %}
     <div class="searchResult">
-        <a href="productpage.html" class="resultTitle">50% off Face Massager</a> <br>
-        <h3>Sephora</h3>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque accusamus voluptate quia tempore alias a odio nostrum fuga similique eos officiis dolor officia doloremque reprehenderit sed, earum mollitia aliquid tempora?</p>
+        <a href="{{url_for('productPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}" class="resultTitle">{{each['title']}}</a> <br>
+        <h3>{{each['name']}}</h3>
+        <h5>{{each['date_posted']}} at {{each['time_posted']}}</h5>
+        <p class="fifty_chars">{{each['description']}}</p>
     </div>
-    <div class="searchResult">
-        <a href="productpage.html" class="resultTitle">70% off Sneakers</a> <br>
-        <h3>Nikes</h3>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque accusamus voluptate quia tempore alias a odio
-            nostrum fuga similique eos officiis dolor officia doloremque reprehenderit sed, earum mollitia aliquid tempora?
-        </p>
-    </div>
-    <div class="searchResult">
-        <a href="productpage.html" class="resultTitle">Earbuds! BIG DISCOUNT</a> <br>
-        <h3>Earbuds</h3>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque accusamus voluptate quia tempore alias a odio
-            nostrum fuga similique eos officiis dolor officia doloremque reprehenderit sed, earum mollitia aliquid tempora?
-        </p>
-    </div>
-    <div class="searchResult">
-        <a href="productpage.html" class="resultTitle">School Supplies Discount</a> <br>
-        <h3>Staples</h3>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque accusamus voluptate quia tempore alias a odio
-            nostrum fuga similique eos officiis dolor officia doloremque reprehenderit sed, earum mollitia aliquid tempora?
-        </p>
-    </div>
+    {% endfor %}
 
     <style>
         body {
             margin-bottom: 50px;
             font-size: 20px;
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
         }
-    
+        .fifty_chars{
+            width: 50ch;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
         .logo {
             color: #fff;
         }

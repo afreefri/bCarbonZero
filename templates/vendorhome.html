@@ -12,26 +12,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Home</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
+        <ul class="nav-links">
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
     </nav>
     
     <div class="login-form">
         <div class="imgcontainer">
-            <img src="images/vendor-avatar.jpg" class="profile-pic-icon">
+            <img src="{{url_for('static', filename = 'images/vendor-avatar.jpg')}}" class="profile-pic-icon">
         </div>
     
-        <!-- all info from vendor table -->
-        <h1>Sephora</h1>
+        <h1>{{name}}</h1>
         <h3>Contact</h3>
-        <p>sephora.com</p>
-        <button><a href="vendoraccountedit.html">Edit Profile</a></button>
-        <button><a href="postHistory.html">Post History</a></button>
+        <p>{{email}}</p>
+        <p>{{website}}</p>
+        <button><a href="/vendorAccountEdit">Edit Profile</a></button>
+        <button><a href="/postHistory">Post History</a></button>
     </div>
     
     <style>
@@ -43,7 +47,7 @@
             color: black;
         }
         body {
-            background: url(images/forest1.jpg);
+            background: url('/static/images/forest1.jpg');
         }
     
         .login-form {
@@ -65,10 +69,6 @@
             margin: 0;
             padding: 20px 0 5px;
             text-align: center;
-        }
-    
-        nav {
-            background-color: #4c7d5b00;
         }
     
         .logo {

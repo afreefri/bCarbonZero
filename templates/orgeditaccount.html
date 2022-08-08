@@ -12,23 +12,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Edit Account</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
     <div class="login-form">
         <h1>Edit Account Info</h1>
-        <form action="">
+        <form action="/editOrgName" method="POST">
             <input type="text" name="name" placeholder="organization name">
             <input type="submit" value="change name">
         </form>
         <br>
-        <form action="">
+        <form action="/editOrgPassword" method="POST">
+            <input type="password" name="password" placeholder="password">
+            <input type="password" name="confirm_password" placeholder="confirm password">
+            <input type="submit" value="change password">
+        </form>
+        {% if passwordError %}
+            <p class="error"><strong>Error:</strong> {{passwordError}} </p>
+        {% endif %}
+        <br>
+        <form action="/editOrgAddress" method="POST">
             <input type="text" name="building_num" placeholder="building number">
             <input type="street" name="street" placeholder="street name">
             <input type="text" name="city" placeholder="city">
@@ -37,22 +46,22 @@
             <input type="submit" value="change address">
         </form>
         <br>
-        <form action="">
+        <form action="/editOrgNumber" method="POST">
             <input type="text" name="phone_number" placeholder="phone number: 3471234568">
             <input type="submit" value="change number">
         </form>
         <br>
-        <form action="">
+        <form action="/editOrgStatement" method="POST">
             <textarea name="mission_statement" cols="63" rows="2">Add your organization's mission statement.</textarea>
             <input type="submit" value="change statement">
         </form>
         <br>
-        <form action="">
+        <form action="/editOrgDescription" method="POST">
             <textarea name="description" cols="63" rows="5">A description of what your organization is and what you do.</textarea>
             <input type="submit" value="change description">
         </form>
         <br>
-        <form action="">
+        <form action="/editOrgWebsite" method="POST">
             <input type="text" name="website" placeholder="www.example.com">
             <input type="submit" value="change website">
         </form>
@@ -60,14 +69,14 @@
     </div>
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('static/images/mushroom.jpg');
         }
     
         .login-form {
             margin-bottom: 10%;
             margin-top: 3%;
             width: 500px;
-            height: 1300px;
+            height: 1500px;
             background: #4c7d5bd6;
             color: #fff;
             left: 50%;

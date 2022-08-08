@@ -12,15 +12,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Recruit</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
-    <form action="" class="login-form">
+    <form action="/recruitForm" method="POST" class="login-form">
         <h1>Post Your Volunteering Opportunity</h1>
         <h4>Title</h4>
         <input type="text" name="post_title" placeholder="title">
@@ -43,7 +43,7 @@
 
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('static/images/login.jpg');
         }
     
         .login-form {

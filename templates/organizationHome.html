@@ -13,37 +13,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Home</title>
 </head>
 
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
+        <ul class="nav-links">
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
     </nav>
 
     <div class="login-form">
         <div class="imgcontainer">
-            <img src="images/org-avatar.jpg" class="profile-pic-icon">
+            <img src="{{url_for('static', filename = 'images/org-avatar.jpg')}}" class="profile-pic-icon">
         </div>
 
-        <!-- all info from organization table -->
-        <h1>TreePlanter</h1>
+        <h1>{{name}}</h1>
         <h3>Location</h3>
-        <p>370 Jay Street</p>
-        <p>Brooklyn, NY 11218</p>
+        <p>{{building_num}} {{street}}</p>
+        <p>{{city}}, {{state}} {{zip_code}}</p>
         <br>
         <h3>Contact</h3>
-        <p>(347)-199-9999</p>
-        <p>treeplanter@gmail.com</p>
+        <p>{{phone_num}}</p>
+        <p>{{email}}</p>
+        <p> {{website}}</p>
         <br>
         <h3>Mission Statement</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem culpa sunt ea cupiditate quam, sint minima quisquam at sed aliquid quaerat nihil, dolore voluptatem doloremque perferendis animi nemo. Velit, in.</p>
-        <h3>Description</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et neque similique a voluptates, possimus asperiores, nesciunt assumenda autem commodi soluta ipsa iste aspernatur suscipit aut quas vitae corrupti impedit, sed laborum accusamus. Voluptas, accusamus iste. Tenetur adipisci sapiente asperiores magni, provident dignissimos similique dicta iusto deserunt perspiciatis tempore fugit culpa.</p>
-        <button><a href="orgeditaccount.html">Edit Profile</a></button>
-        <button><a href="applicants.html">View Post History</a></button>
+        <p>{{mission_statement}}</h3>
+        <br>
+        <br>
+        <h3>Organization Description</h3>
+        <p>{{description}}</p>
+
+        <button><a href="/orgEditAccount">Edit Profile</a></button>
+        <button><a href="/applicants">View Post History</a></button>
     </div>
 
     <style>
@@ -55,7 +62,7 @@
             color: black;
         }
         body {
-            background: url(images/forest1.jpg);
+            background: url('/static/images/forest1.jpg');
         }
 
         .login-form {
@@ -77,10 +84,6 @@
             margin: 0;
             padding: 20px 0 5px;
             text-align: center;
-        }
-
-        nav {
-            background-color: #4c7d5b00;
         }
 
         .logo {

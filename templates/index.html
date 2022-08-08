@@ -9,28 +9,62 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <title>Home Page</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
         <ul class="nav-links">
-            <li>
-                <a href="volunteer.html">Volunteer</a>
-            </li>
-            <li>
-                <a href="recruit.html">Recruit</a>
-            </li>
-            <li>
-                <a href="advertise.html">Advertise</a>
-            </li>
-            <li>
-                <a href="advertisements.html">Exchange</a>
-            </li>
+            {% if account == 'organization' %}
+                <li>
+                    <a href="/recruit">Recruit</a>
+                </li>
+                <li>
+                    <a href="/advertisements">Products</a>
+                </li>
+            {% endif %}
+
+            {% if account == 'vendor' %}
+                <li>
+                    <a href="/advertise">Advertise</a>
+                </li>
+                <li>
+                    <a href="/advertisements">Products</a>
+                </li>
+            {% endif %}
+
+            {% if account == 'volunteer' %}
+                <li>
+                    <a href="/volunteer">Volunteer</a>
+                </li>
+                <li>
+                    <a href="/advertisements">Products</a>
+                </li>
+            {% endif %}
+
+            {% if account == 'none' %}
+                <li>
+                    <a href="/volunteer">Volunteer</a>
+                </li>
+                <li>
+                    <a href="/recruit">Recruit</a>
+                </li>
+                <li>
+                    <a href="/advertise">Advertise</a>
+                </li>
+                <li>
+                    <a href="/advertisements">Products</a>
+                </li>
+            {% endif %}
+
             <li>
                 <!-- IF LOGGED IN, REDIRECT TO THEIR APPROPRIATE ACCOUNT HOMEPAGE, OTHERWISE REDIRECT TO SIGNUP PAGE-->
-                <a href="signup.html">Account</a>
+                {% if account != 'none' %}
+                <a href="/account">Account</a>
+                {% else %}
+                <a href="/signup">Signup/Login</a>
+                {% endif %}
             </li>
         </ul>
     </nav>
@@ -82,28 +116,28 @@
         }
 
         .parallax {
-            background: url(images/forest1.jpg) no-repeat center;
+            background: url('/static/images/forest1.jpg') no-repeat center;
             background-size: cover;
             background-attachment: fixed;
             height: 400px;
         }
 
         #two {
-            background: url(images/sunset.jpg) no-repeat center;
+            background: url('/static/images/sunset.jpg') no-repeat center;
             background-size: cover;
             background-attachment: fixed;
             height: 400px;
         }
 
         #three {
-            background: url(images/anotherTree.jpg) no-repeat center;
+            background: url('/static/images/anotherTree.jpg') no-repeat center;
             background-size: cover;
             background-attachment: fixed;
             height: 400px;
         }
 
         #four {
-            background: url(images/tree.jpg) no-repeat center;
+            background: url('/static/images/tree.jpg') no-repeat center;
             background-size: cover;
             background-attachment: fixed;
             height: 400px;

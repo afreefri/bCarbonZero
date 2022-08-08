@@ -11,35 +11,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
-    <title>Plant Trees</title>
+    <title>{{data['title']}}</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
-    <!-- everything from opportunity table -->
     <div class="post">
-        <h1>Plant Trees</h1>
-        <a href="organizationAbout.html" class="resultOrganization">treeplanter</a>
-        <p>Date Posted: 04/05/2022</p>
+        <h1>{{data['title']}}</h1>
+        <a href="{{url_for('organizationAbout', EIN=data['EIN'])}}"class="resultOrganization">{{name}}</a>
+        <p>Date Posted: {{data['date_posted']}}</p>
         <br>
         <h3>Location</h3>
-        <p>Brooklyn, NY 11218</p>
+        <p>{{data['city']}}, {{data['state']}} {{data['zip_code']}}</p>
         <br>
         <h3>Description</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsam, amet quo eaque fugiat deserunt impedit tenetur numquam voluptatibus a, consequuntur saepe esse! Consequatur debitis deserunt soluta! Fuga eius dicta alias unde. Nihil ut a quisquam? Magnam harum voluptas numquam hic qui explicabo temporibus eligendi aspernatur vel aperiam, eius possimus quis, facilis repudiandae! Consequuntur dolorum fugiat sequi maiores odit! Quam odio labore blanditiis dignissimos maiores sed sequi provident, ex sunt molestiae. Libero natus magnam quae molestias quia corrupti asperiores, magni dolores, quos repellat animi iure doloribus deleniti nostrum unde ab cumque! Reiciendis quis hic aperiam sint deleniti expedita quibusdam, voluptate nemo quo cumque temporibus autem necessitatibus! Voluptates consectetur vero, numquam, accusantium esse repellat reprehenderit aut, consequuntur beatae corporis dolorem expedita debitis corrupti harum tenetur ipsa ipsam doloribus. Facere tempora consequuntur nulla soluta dolore, quam vitae nam veritatis, nesciunt illo repudiandae alias labore neque rem! Inventore, officia numquam quo magni temporibus distinctio rerum expedita beatae! Perspiciatis incidunt sunt ullam, doloremque harum consequuntur ipsum nam dignissimos voluptatum temporibus blanditiis laudantium placeat tempora officiis ipsa natus, dolorem tenetur reiciendis esse vitae, nesciunt adipisci inventore neque! Architecto reprehenderit necessitatibus nostrum asperiores perspiciatis unde harum, laudantium debitis repellat reiciendis eum aspernatur nobis consequatur quod pariatur, nisi eos veritatis, ut sapiente. Blanditiis ipsam minus ex repellendus aspernatur sed nulla minima officia quod, exercitationem ipsum iste nemo. Doloribus a voluptatem adipisci quidem similique est cumque quaerat fuga porro quo praesentium distinctio accusantium, eius dicta dolorum iusto obcaecati, minus eligendi aspernatur nostrum ducimus quae sunt! Est nisi numquam eum. Ut deleniti beatae harum in rerum velit itaque soluta provident nobis maiores ipsa amet iste mollitia assumenda nemo fugit accusantium repudiandae, quo voluptates! Autem, cumque? Dolor pariatur, iusto esse vel laudantium est exercitationem placeat facere unde voluptatibus officiis amet aperiam quo temporibus similique at neque! Magnam dolorem dolore obcaecati.</p>
+        <p>{{data['description']}}</p>
         <br>
         <h3>Reward</h3>
-        <p>100</p>
+        <p>{{data['reward']}}</p>
         <br>
-        <button type="button" class="applyButton">APPLY</button>
+        {% if data['updated'] == 1 %}
+        <button class="closed">closed</button>
+        {% else %}
+        <form action="{{url_for('applyOpportunity', ein=data['EIN'], post_date=data['date_posted'], post_time=data['time_posted'])}}" method="post">
+            <input class="applybutton" type="submit" name="applybutton" value="APPLY">
+        </form>
+        {% endif %}
     </div>
     <style>
         body{
-            background: url(images/autumn.jpg);
+            background: url('/static/images/autumn.jpg');
         }
         .post{
             text-align: center;
@@ -52,7 +57,7 @@
             padding: 15px 15px 15px 15px;
             background-color: #fff;
         }
-        .post button{
+        .applybutton{
             border: none;
             outline: none; 
             height: 40px;
@@ -63,10 +68,21 @@
             padding-right: 15px;
             padding-left: 15px;
         }
-        .post button:hover{
+        .applybutton:hover{
             cursor: pointer;
             background: #ffc107;
             color: #000
+        }
+        .closed{
+            border: none;
+            outline: none; 
+            height: 40px;
+            background: #dd5e5e;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            padding-right: 15px;
+            padding-left: 15px;
         }
         .post a:hover{
             cursor: pointer;

@@ -12,40 +12,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Edit Account</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
     <div class="login-form">
         <h1>edit your information</h1>
-        <form action="">
-            <input type="email" name="userEmail" placeholder="example@email.com">
-            <input type="submit" value="change email">
-        </form>
-        <br>
-        <form action="">
-            <input type="password" name="userPassword" placeholder="password">
-            <input type="password" name="confirmPassword" placeholder="confirm password">
+        <form action="/editUserPassword" method="POST">
+            <input type="password" name="password" placeholder="password">
+            <input type="password" name="confirm_password" placeholder="confirm password">
             <input type="submit" value="change password">
         </form>
-
+        {% if passwordError %}
+            <p class="error"><strong>Error:</strong> {{passwordError}} </p>
+        {% endif %}
         
     </div>
     
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('static/images/login.jpg');
         }
     
         .login-form {
             margin-bottom: 10%;
             margin-top: 3%;
             width: 370px;
-            height: 580px;
+            height: 420px;
             background: #4c7d5bd6;
             color: #fff;
             left: 50%;

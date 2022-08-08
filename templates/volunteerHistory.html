@@ -12,14 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Post History</title>
 </head>
 
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
     <div class="applicants">
@@ -30,26 +30,33 @@
                 <th>Status</th>
                 <th>Tokens Rewarded</th>
 
+                {% for each in data %}
                 <tr>
-                    <!--title from opportunity table-->
-                    <td> <a href="opportunitypage.html" target="_blank">Plant Trees</a> </td>
-                    <td> approved </td>
-                    <td>100</td>
-                </tr>
+                    {% if each['title'] == None %}
+                        <td> DELETED </td>
+                    {% else %}
+                    <td> <a href="{{url_for('opportunityPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}">{{each['title']}} </a> </td>
+                    {% endif %}
 
-                <tr>
-                    <!--title from opportunity table-->
-                    <td> <a href="opportunitypage.html" target="_blank">Clean Coney Island</a> </td>
+                    {% if each['status'] == 0 %}
                     <td> pending </td>
-                    <td>0</td>
-                </tr>
+                    {% elif each['status'] == 1 %}
+                    <td> REWARDED! </td>
+                    {% else %}
+                    <td>declined</td>
+                    {% endif %}
 
-                <tr>
-                    <!--title from opportunity table-->
-                    <td> <a href="opportunitypage.html" target="_blank">Animal Shelter</a> </td>
-                    <td> approved </td>
-                    <td>100</td>
+
+                    {% if each['status'] == 1 %}
+                        <td>10</td>
+                    {% elif each['status'] == 0 %}
+                        <td>-</td>
+                    {% else %}
+                        <td> 0 </td>
+                    {% endif %}
+
                 </tr>
+                {% endfor %}
 
             </table>
         </div>
@@ -63,7 +70,7 @@
         }
 
         body {
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
             margin-bottom: 50px;
         }
 

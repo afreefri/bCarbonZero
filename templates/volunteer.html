@@ -12,16 +12,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Volunteer</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
         
-        <form class="searchmenu">
-            <label for="city" class="navSearchText">Search By City Or Zip Code:</label>
+        <form action="/oppSearch" class="searchmenu" method="POST">
+            <label for="city" class="navSearchText">Search By City And/Or Zip Code:</label>
             <input id="city" type="text" name="city" placeholder="city">
             <input type="text" name="zip_code" placeholder="zip code">
             <input type="submit" value="search">
@@ -30,63 +30,43 @@
     <br>
     <br>
 
+    {% for each in data %}
     <div class="searchResult">
-        <!-- title from opportunity table -->
-        <a href="opportunitypage.html" class="resultTitle">Plant Trees</a> <br>
-        
-        <!-- organization name from organization table -->
-        <a href="organizationAbout.html" class="resultOrganization">treeplanter</a>
+        <a href="{{url_for('opportunityPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}" class="resultTitle">{{each['title']}}</a> <br>
 
-        <!-- all this info from opportunity table -->
-        <h5>Brooklyn, NY</h5>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt voluptas?</p>
+        <a href="organizationAbout.html" class="resultOrganization">{{each['name']}}</a>
+
+        <h5>{{each['city']}}, {{each['state']}} {{each['zip_code']}} </h5>
+        <h5>{{each['date_posted']}} at {{each['time_posted']}}</h5>
+        <p class="fifty_chars" >{{each['description']}}</p>
+        {% if each['updated'] == 1 %}
+        <button class="closed">closed</button>
+        {% endif %}
     </div>
-    <div class="searchResult">
-        <!-- title from opportunity table -->
-        <a href="opportunitypage.html" class="resultTitle">Clean Coney Island Beach</a> <br>
-    
-        <!-- organization name from organization table -->
-        <a href="organizationAbout.html" class="resultOrganization">beachcleaner</a>
-    
-        <!-- all this info from opportunity table -->
-        <h5>Brooklyn, NY</h5>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
-            voluptas?</p>
-    </div>
-    <div class="searchResult">
-        <!-- title from opportunity table -->
-        <a href="opportunitypage.html" class="resultTitle">Soup Kitchen</a> <br>
-    
-        <!-- organization name from organization table -->
-        <a href="organizationAbout.html" class="resultOrganization">soupkitchen</a>
-    
-        <!-- all this info from opportunity table -->
-        <h5>Queens, NY</h5>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
-            voluptas?</p>
-    </div>
-    <div class="searchResult">
-        <!-- title from opportunity table -->
-        <a href="opportunitypage.html" class="resultTitle">Animal Shelter</a> <br>
-    
-        <!-- organization name from organization table -->
-        <a href="organizationAbout.html" class="resultOrganization">animalshelter</a>
-    
-        <!-- all this info from opportunity table -->
-        <h5>Manhattan, NY</h5>
-        <h5>04/05/2022</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis odit molestiae accusantium, sunt
-            voluptas?</p>
-    </div>
+    {% endfor %}
 
     <style>
         body{
             margin-bottom: 50px;
             font-size: 20px;
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
+        }
+        .closed{
+            border: none;
+            outline: none; 
+            height: 40px;
+            background: #dd5e5e;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .fifty_chars{
+            width: 50ch;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         .logo{
             color: #fff;

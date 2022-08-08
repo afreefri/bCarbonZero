@@ -12,34 +12,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Sign Up</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
     <div class="loginbox">
         <h1>I AM...</h1>
         <div>
-            <a href="usersignup.html">
+            <a href="/usersignup">
                 <button>a volunteer</button>
             </a>
         </div>
         <div>
-            <a href="organizationsignup.html">
+            <a href="/organizationsignup">
                 <button>an organization</button>
             </a>
         </div>
         <div>
-            <a href="vendorsignup.html">
+            <a href="/vendorsignup">
                 <button>a vendor</button>
             </a>
         </div>
         <div class="loginLink">
-            <a href="login.html" class="loginLink">Already have an account? Log in!</a>
+            <a href="/login" class="loginLink">Already have an account? Log in!</a>
         </div>
     </div>
     
@@ -56,7 +56,7 @@
             color: white;
         }
         body{
-            background: url(images/signup.png);
+            background: url('static/images/signup.png');
             margin-bottom: 50px;
         }
         .loginbox{
