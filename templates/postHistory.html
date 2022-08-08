@@ -12,67 +12,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Post History</title>
 </head>
 
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
+    <div class="something">
+        <h1>Post History</h1>
+        <p>This page tracks your post history as well as all the people who have exchanged tokens for your discounts.</p>
+    </div>
+
+    {% for each in data %}
     <div class="applicants">
+        <a href="{{url_for('productPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}">{{each['title']}}</a>
+        <h4>{{each['date_posted']}} at {{each['time_posted']}}</h4>
 
-        <!-- this info in from the advertisement table -->
-        <a href="productpage.html">50% off Face Massager</a>
-        <h4>04/05/2022</h4>
-
-        <h4>total sales made: 4</h4>
+        <h4>total sales made: {{each['total_customers']}}</h4>
 
         <div class="table">
             <table>
                 <th>Customer Email</th>
+                
+                {% for customer in each['customers']%}
                 <tr>    
-                    <td> af3521@nyu.edu </td>
+                    <td> {{customer['email']}} </td>
                 </tr>
-                <tr>
-                    <td> someemail@nyu.edu </td>
-                </tr>
-                <tr>
-                    <td> anotheremail@gmail.com </td>
-                </tr>
-                <tr>
-                    <td> frida@gmail.com </td>
-                </tr>
+                {% endfor %}
 
             </table>
         </div>
-        <button>delete post</button>
-    </div>
+        <br>
 
-    <div class="applicants">
-    
-        <!-- this info in from the advertisement table -->
-        <a href="productpage.html">50% off Lipstick</a>
-        <h4>04/05/2022</h4>
-    
-        <h4>total sales made: 2</h4>
-    
-        <div class="table">
-            <table>
-                <th>Customer Email</th>
-                <tr>
-                    <td> af3521@nyu.edu </td>
-                </tr>
-                <tr>
-                    <td> frida@gmail.com </td>
-                </tr>
-    
-            </table>
-        </div>
-        <button>delete post</button>
+        <form action="" method="POST">
+            <button type="submit" formaction="{{ url_for('deleteAd', post_date=each['date_posted'], post_time=each['time_posted']) }}">delete
+                post</button>
+        </form>
+
     </div>
+    {% endfor %}
 
     <style>
         .table {
@@ -82,7 +64,7 @@
         }
 
         body {
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
             margin-bottom: 50px;
         }
 
@@ -151,6 +133,18 @@
         button:hover {
             background: #ffc107;
             color: black;
+        }
+        .something{
+            text-align: center;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            border: 1px black solid;
+            border-radius: 15px;
+            padding: 15px 15px 15px 15px;
+            background-color: #fff;
+            
         }
     </style>
 </body>

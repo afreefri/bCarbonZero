@@ -12,18 +12,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Organization Sign Up</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
+        <ul class="nav-links">
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
     </nav>
 
     <div class="login-form">
         <h1>ORGANIZATION SIGN UP</h1>
-        <form action="">
+        <form action="/orgSignupAuthContinued" method="POST">
             <h4>Name</h4>
             <input type="text" name="name" placeholder="organization name">
             <br>
@@ -38,7 +42,7 @@
             </div>
             <br>
             <h4>Phone Number</h4>
-            <input type="text" name="phone_number" placeholder="3479812907">
+            <input type="text" name="phone_number" placeholder="1245689851">
             <br>
             <br>
             <h4>Mission Statement</h4>
@@ -59,7 +63,7 @@
 
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('/static/images/login.jpg');
         }
     
         .login-form {

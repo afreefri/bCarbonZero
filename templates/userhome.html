@@ -11,33 +11,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Home</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
+        <ul class="nav-links">
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
     </nav>
 
     <div class="login-form">
         <div class="imgcontainer">
-            <img src="images/avatar.png" class="profile-pic-icon">
+            <img src="{{url_for('static', filename = 'images/avatar.png')}} " class="profile-pic-icon">
         </div>
 
-        <!-- all info from the volunteer table -->
-        <h1>af3521@nyu.edu</h1>
-        <h3>Tokens Collected: 500</h3>
+        <h1>{{email}}</h1>
+        <h3>Tokens Collected: {{tokens}}</h3>
         <br>
-        <button> <a href="exchangehistory.html" target="_blank">Purchase History</a></button>
-        <button><a href="volunteerHistory.html" target="_blank">Volunteering History</a></button>
+        <button> <a href="/exchangeHistory">Purchase History</a></button>
+        <button><a href="/volunteerHistory">Volunteering History</a></button>
         <br>
-        <button><a href="useraccountedit.html" target="_blank">Edit Profile</a></button>
+        <button><a href="/userEditAccount">Edit Profile</a></button>
     </div>
 
     <style>
         body {
-            background: url(images/forest1.jpg);
+            background: url('/static/images/forest1.jpg');
         }
 
         .login-form {
@@ -59,10 +62,6 @@
             margin: 0;
             padding: 20px 0 5px;
             text-align: center;
-        }
-
-        nav {
-            background-color: #4c7d5b00;
         }
 
         .logo {

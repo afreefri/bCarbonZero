@@ -12,93 +12,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>View Applicants</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
     <div class="something">
         <h1>Applicants</h1>
         <p>You can view all the volunteers that have applied to your posts. Check the status box once a volunteer has completed
             their task.</p>
+        <h3 style="color:#ffc107">PLEASE NOTE: Once you have updated a post, applicants will no longer be able to apply to your event!</h3>
     </div>
     
+    {% for each in data %}
     <div class="applicants"> 
+        <a href="{{url_for('opportunityPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}">{{each['title']}}</a>
+        <h4>{{each['date_posted']}} at {{each['time_posted']}}</h4>
 
-        <!--title, date_posted_ and time_posted are from the opportunity table -->
-        <a href="opportunitypage.html">Plant Trees</a>
-        <h4>04/05/2022 at 10:25:22</h4>
-
-        <form action="">
+        <form action="{{ url_for('approveApplicants', post_date=each['date_posted'], post_time=each['time_posted']) }}" method="POST">
             <div class="table">
                 <table>
                     <th>Applicant Email</th>
                     <th>Status</th>
+                    {% for user in each['applicants']%}
                     <tr>
-                        <td> af3521@nyu.edu </td>
+                        <td> {{user['email']}}</td>
+                        {% if user['status'] == 0 %}
                         <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
+                            <input id="status" type="checkbox" name="applicantStatus" value="{{user['email']}}">
                         </td>
+                        {% elif user['status'] == 1 %}
+                        <td> Rewarded! </td>
+                        {% elif user['status'] == 2 %}
+                        <td> Declined </td>
+                        {% endif %}
                     </tr>
-                    <tr>
-                        <td> someone@gmail.com </td>
-                        <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> someoneelse@nyu.edu </td>
-                        <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
             <br>
-            <input type="submit" value="update">
-        </form>
-        <button>delete post</button>
-    </div>
 
-    <div class="applicants">
-    
-        <!--title, date_posted_ and time_posted are from the opportunity table -->
-        <a href="opportunitypage.html">Clean Coney Island Beach</a>
-        <h4>10/25/2020 at 9:30:15</h4>
-    
-        <form action="">
-            <div class="table">
-                <table>
-                    <th>Applicant Email</th>
-                    <th>Status</th>
-                    <tr>
-                        <td> josh@nyu.edu </td>
-                        <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> dimitri@gmail.com </td>
-                        <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> someoneelse@nyu.edu </td>
-                        <td>
-                            <input id="status" type="checkbox" name="applicantStatus">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <br>
-            <input type="submit" value="update">
+            {% if each['updated'] == 0 %}
+            <input type="submit" value="update"> <br>
+            {% endif %}
+
+            <button type="submit" formaction="{{ url_for('deletePost', post_date=each['date_posted'], post_time=each['time_posted']) }}">delete post</button>
         </form>
-        <button>delete post</button>
     </div>
+    {% endfor %}
 
 
     <style>
@@ -108,7 +72,7 @@
             justify-content: center;
         }
         body{
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
             margin-bottom: 50px;
         }
         table,
@@ -199,6 +163,7 @@
         button:hover {
             background: #ffc107;
             color: black;
+            cursor: pointer;
         }
     </style>
 </body>

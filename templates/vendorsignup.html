@@ -12,39 +12,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Vendor Sign Up</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
     <div class="login-form">
         <h1 id="vendorSignUp">vendor sign up</h1>
-        <form action="">
+        <form action="/vendorSignupAuth" method="POST">
             <p>Employer Identification Number</p>
-            <input type="text" name="vendorEIN" placeholder="employer identification number">
+            {% if ein %}
+            <input type="text" name="EIN" value="{{ein}}">
+            {% else %}
+            <input type="text" name="EIN" placeholder="123456789">
+            {% endif %}
+
             <p>Company Name</p>
-            <input type="text" name="company_name" placeholder="company name">
+            {% if name %}
+            <input type="text" name="name" value="{{name}}">
+            {% else %}
+            <input type="text" name="name" placeholder="company name">
+            {% endif %}
+
+            <p>Website</p>
+            {% if website %}
+            <input type="text" name="website" value="{{website}}">
+            {% else %}
+            <input type="text" name="website" placeholder="www.example.com">
+            {% endif %}
+
             <p>Email</p>
-            <input type="email" name="vendorEmail" placeholder="email">
+            {% if email %}
+            <input type="email" name="email" value="{{email}}">
+            {% else %}
+            <input type="email" name="email" placeholder="example@email.com">
+            {% endif %}
+
             <p>password</p>
-            <input type="password" name="vendorPassword" placeholder="password">
+            <input type="password" name="password" placeholder="password">
             <p>confirm password</p>
             <input type="password" name="comfirmPassword" placeholder="confirm password">
             <br>
             <br>
             <input type="submit" value="sign up">
         </form>
-        <a href="login.html">Have an account already? Log in!</a>
+        <a href="/login">Have an account already? Log in!</a>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}} </p>
+        {% endif %}
         <br>
         <br>
     </div>
     
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('/static/images/login.jpg');
         }
     
         .login-form select {
@@ -57,7 +82,7 @@
             margin-bottom: 10%;
             margin-top: 3%;
             width: 370px;
-            height: 690px;
+            height: 800px;
             background: #4c7d5bd6;
             color: #fff;
             left: 50%;

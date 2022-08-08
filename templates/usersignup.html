@@ -12,33 +12,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>User Sign Up</title>
 </head>
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
     <div class="login-form">
         <h1>volunteer sign up</h1>
-        <form action="">
+        <form action="/userSignupAuth" method="POST">
             <p>Email</p>
+            {% if email %}
+            <input type="email" name="userEmail" value={{email}}>
+            {% else %}
             <input type="email" name="userEmail" placeholder="example@email.com">
+            {% endif %}
             <p>Password</p>
             <input type="password" name="userPassword" placeholder="password">
             <p>Confirm Password</p>
-            <input type="password" name="userPassword" placeholder=" confirm password">
+            <input type="password" name="confirmPassword" placeholder=" confirm password">
             <br>
             <br>
             <input type="submit" value="sign up">
         </form>
-        <a href="login.html">Have an account already? Log in!</a>
+        <a href="/login">Have an account already? Log in!</a>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}} </p>
+        {% endif %}
     </div>
     
     <style>
         body {
-            background: url(images/login.jpg);
+            background: url('/static/images/login.jpg');
         }
     
         .login-form {

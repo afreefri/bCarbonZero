@@ -12,45 +12,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
     <title>Post History</title>
 </head>
 
 <body>
     <nav>
-        <a class="logo" href="index.html">bCarbonZero</a>
+        <a class="logo" href="/">bCarbonZero</a>
     </nav>
 
     <div class="applicants">
         <h1>Exchange History</h1>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}} </p>
+        {% endif %}
         <div class="table">
             <table>
                 <th>Ad Title</th>
                 <th>Redeem Website</th>
                 <th>Tokens Exchanged</th>
 
-                <!--title, website_link, and cost are all from the advertisement table-->
+                {% for each in data %}
                 <tr>
-                    <td> <a href="productpage.html" target="_blank">50% off Face Massager</a></td>
-                    <td> www.facemassager.com/bCarbonZeroUser7022 </td>
-                    <td> 40 </td>
+                    {% if each['title'] == None %}
+                    <td> DELETED </td>
+                    {% else %}
+                    <td> <a href="{{url_for('productPage', ein=each['EIN'], post_date=each['date_posted'], post_time=each['time_posted'])}}">{{each['title']}}</a></td>
+                    {% endif %}
+
+                    {% if each['redirect_link'] == None %}
+                    <td> - </td>
+                    {% else %}
+                    <td> {{each['redirect_link']}} </td>
+                    {% endif %}
+
+                    <td> 20 </td>
                 </tr>
-                <tr>
-                    <td> <a href="productpage.html" target="_blank">70% off Sneakers</a></td>
-                    <td> www.sneakers.com/bCarbonZeroUser78 </td>
-                    <td> 300 </td>
-                </tr>
-                <tr>
-                    <td> <a href="productpage.html" target="_blank">Earbuds! BIG DISCOUNT</a></td>
-                    <td> www.earbuds.com/bCarbonZeroUser7889 </td>
-                    <td> 250 </td>
-                </tr>
-                <tr>
-                    <td> <a href="productpage.html" target="_blank">School Supplies Discount</a></td>
-                    <td> www.staples.com/bCarbonZeroUser70 </td>
-                    <td> 77 </td>
-                </tr>
+                {% endfor %}
 
             </table>
         </div>
@@ -64,7 +63,7 @@
         }
 
         body {
-            background: url(images/mushroom.jpg);
+            background: url('static/images/mushroom.jpg');
             margin-bottom: 50px;
         }
 
