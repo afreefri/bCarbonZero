@@ -1,4 +1,4 @@
-_**bCarbonZero**
+# bCarbonZero
 
 A platform to connect volunteers and non-profits and incentivize service. Get tokens for volunteering and
 trade tokens for products and discounts.
