@@ -50,6 +50,7 @@ a{
     justify-content: space-around;
     width: 40%;
     transform: translateX(0px);
+    gap: 10px;
 }
 
 .nav-links li{
